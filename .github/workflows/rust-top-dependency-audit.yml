@@ -23,7 +23,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Install cargo-edit
-        run: cargo install cargo-edit@0.6.0
+        run: cargo install cargo-edit --version 0.6.0
       - name: Add dependencies
         run: ./add_top_crates.sh
       - uses: actions-rs/audit-check@v1.2.0
