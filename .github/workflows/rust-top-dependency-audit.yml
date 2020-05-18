@@ -14,8 +14,12 @@ on:
 jobs:
   check-dependency-versions:
     runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, 'ci skip')"
     steps:
+      - name: Cache cargo bin
+        uses: actions/cache@v1
+        with:
+          path: ~/.cargo/bin
+          key: cargo-bin
       - name: Checkout
         uses: actions/checkout@v2
       - name: Install cargo-edit
