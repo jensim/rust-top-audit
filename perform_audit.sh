@@ -13,6 +13,9 @@ echo "Audited the top $total_size crates from crates.io" >> README.md
 echo "" >> README.md
 echo "----" >> README.md
 
+git config --global user.email "jens.brimfors@gmail.com"
+git config --global user.name "GitHub Actions on behalf of Jens Brimfors"
+cargo init
 cargo install -q cargo-edit --version 0.6.0 > /dev/null 2>&1 || echo "cargo-edit already installed"
 cargo install -q cargo-audit --version 0.12.0 > /dev/null 2>&1 || echo "cargo-audit already installed"
 
@@ -48,8 +51,6 @@ rm Cargo.lock
 cargo audit >> README.md
 echo "\`\`\`" >> README.md
 
-git config --global user.email "jens.brimfors@gmail.com"
-git config --global user.name "GitHub Actions on behalf of Jens Brimfors"
 git remote add github "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git"
 git pull github ${GITHUB_REF} --ff-only
 

@@ -1,5 +1,0 @@
-[package]
-name = "rust-top-audit"
-version = "0.1.0"
-authors = ["Jens Brimfors <jens.brimfors@gmail.se>"]
-edition = "2018"
