@@ -24,7 +24,7 @@ do
   do
     if cargo add "$crate" > /dev/null ; then
       if cargo audit -D --stale > /dev/null ; then
-        echo "" > /dev/null
+        echo "No problem" > /dev/null
       else
         echo " * $crate" >> README.md
         echo "\`\`\`" >> README.md
