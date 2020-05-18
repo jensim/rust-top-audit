@@ -19,11 +19,11 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ~/.cargo/bin
-          key: cargo-bin
+          key: ${{ runner.os }}-cargo-bin-${{ hashFiles('~/.cargo/bin/*') }}
       - name: Checkout
         uses: actions/checkout@v2
       - name: Install cargo-edit
-        run: cargo install cargo-edit
+        run: cargo install cargo-edit@0.6.0
       - name: Add dependencies
         run: ./add_top_crates.sh
       - uses: actions-rs/audit-check@v1.2.0
