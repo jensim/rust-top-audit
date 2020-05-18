@@ -1,5 +1,10 @@
 #!/bin/bash
 
+pages=10
+page_size=50
+total_size=$(expr $pages \* $page_size)
+failed_fetch=()
+
 cat README_TEMPLATE.md > README.md
 echo "" >> README.md
 echo "Last run:   $(date)" >> README.md
@@ -10,10 +15,7 @@ echo "----" >> README.md
 
 cargo install -q cargo-edit --version 0.6.0 > /dev/null 2>&1 || echo "cargo-edit already installed"
 cargo install -q cargo-audit --version 0.12.0 > /dev/null 2>&1 || echo "cargo-audit already installed"
-pages=10
-page_size=50
-total_size=$(expr $pages \* $page_size)
-failed_fetch=()
+
 for page in $(seq 1 $pages)
 do
   URL="https://crates.io/api/v1/crates?page=${page}&per_page=$page_size&sort=recent-downloads"
