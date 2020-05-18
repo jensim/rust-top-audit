@@ -3,6 +3,7 @@
 cat README_TEMPLATE.md > README.md
 echo "" >> README.md
 echo "Last run:   $(date)" >> README.md
+echo "" >> README.md
 echo "Audited the top $total_size crates from crates.io" >> README.md
 echo "" >> README.md
 echo "----" >> README.md
@@ -14,24 +15,30 @@ cargo install -q cargo-audit --version 0.12.0 || echo "cargo-audit already insta
 pages=20
 page_size=50
 total_size=$(expr $pages \* $page_size)
+cargo audit -q
 for page in $(seq 1 $pages)
 do
   URL="https://crates.io/api/v1/crates?page=${page}&per_page=$page_size&sort=recent-downloads"
   echo "Fetching page $page with url $URL"
   for crate in $(curl $URL | jq -r ".crates[] | .id"   )
   do
-    cargo add "$crate" || echo " * $crate" >> README.md
+    if cargo add "$crate" ; then
+      if cargo audit -D -q --stale ; then
+        echo "" > /dev/null
+      else
+        echo " * $crate" >> README.md
+        echo "\`\`\`" >> README.md
+        cargo audit --stale >> README.md
+        echo "\`\`\`" >> README.md
+      fi
+    else
+      echo " * $crate" >> README.md
+      echo "        Unable to fetch" >> README.md
+    fi
+    git checkout Cargo.toml
+    rm Cargo.lock || echo "No lock file"
   done
 done
-
-echo "" >> README.md
-echo "----" >> README.md
-echo "" >> README.md
-echo "Audit output:" >> README.md
-echo "" >> README.md
-echo "\`\`\`" >> README.md
-cargo audit >> README.md
-echo "\`\`\`" >> README.md
 
 git config --global user.email "jens.brimfors@gmail.com"
 git config --global user.name "GitHub Actions on behalf of Jens Brimfors"
