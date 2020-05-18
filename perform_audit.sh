@@ -20,10 +20,10 @@ for page in $(seq 1 $pages)
 do
   URL="https://crates.io/api/v1/crates?page=${page}&per_page=$page_size&sort=recent-downloads"
   echo "Fetching page $page with url $URL"
-  for crate in $(curl $URL | jq -r ".crates[] | .id"   )
+  for crate in $(curl -s $URL | jq -r ".crates[] | .id"   )
   do
-    if cargo add "$crate" ; then
-      if cargo audit -D -q --stale ; then
+    if cargo add "$crate" > /dev/null ; then
+      if cargo audit -D --stale > /dev/null ; then
         echo "" > /dev/null
       else
         echo " * $crate" >> README.md
@@ -35,8 +35,8 @@ do
       echo " * $crate" >> README.md
       echo "        Unable to fetch" >> README.md
     fi
-    git checkout Cargo.toml
-    rm Cargo.lock || echo "No lock file"
+    git checkout Cargo.toml > /dev/null 2>&1
+    rm Cargo.lock || echo "No lock file" > /dev/null
   done
 done
 
