@@ -1,4 +1,5 @@
 name: Rust top dependency audit
+
 on:
   schedule:
     - cron: '0 2 * * *' # run at 2 AM UTC
@@ -9,6 +10,7 @@ on:
       - '.github/workflows/*.yml'
   pull_request:
     branches: [ master ]
+
 jobs:
   check-dependency-versions:
     runs-on: ubuntu-latest
@@ -19,11 +21,7 @@ jobs:
       - name: Install cargo-edit
         run: cargo install cargo-edit
       - name: Add dependencies
-        run: |
-          for crate in $(curl "https://crates.io/api/v1/crates?page=1&per_page=50&sort=recent-downloads" | jq -r ".crates[] | .id"   )
-          do
-            cargo add "$crate"
-          done
+        run: ./add_top_crates.sh
       - uses: actions-rs/audit-check@v1.2.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
