@@ -20,4 +20,4 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Perform audit
-        run: ./perform_audit.sh
+        run: bash perform_audit.sh

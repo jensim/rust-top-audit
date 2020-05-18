@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 cat README_TEMPLATE.md > README.md
 echo "" >> README.md
@@ -13,7 +13,7 @@ cargo install -q cargo-audit --version 0.12.0 > /dev/null 2>&1 || echo "cargo-au
 pages=10
 page_size=50
 total_size=$(expr $pages \* $page_size)
-failed_fetch=""
+failed_fetch=()
 for page in $(seq 1 $pages)
 do
   URL="https://crates.io/api/v1/crates?page=${page}&per_page=$page_size&sort=recent-downloads"
