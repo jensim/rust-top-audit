@@ -1,5 +1,14 @@
 #!/bin/sh -e
 
+cat README_TEMPLATE.md > README.md
+echo "" >> README.md
+echo "Last run:   $(date)" >> README.md
+echo "Audited the top $total_size crates from crates.io" >> README.md
+echo "" >> README.md
+echo "----" >> README.md
+echo "" >> README.md
+echo "Failed fetching crates:" >> README.md
+
 cargo install -q cargo-edit --version 0.6.0 || echo "cargo-edit already installed"
 cargo install -q cargo-audit --version 0.12.0 || echo "cargo-audit already installed"
 pages=20
@@ -11,16 +20,14 @@ do
   echo "Fetching page $page with url $URL"
   for crate in $(curl $URL | jq -r ".crates[] | .id"   )
   do
-    cargo add "$crate"
+    cargo add "$crate" || echo " * $crate" >> README.md
   done
 done
 
-cat README_TEMPLATE.md > README.md
-echo "" >> README.md
-echo "Last run:   $(date)" >> README.md
-echo "Audited the top $total_size crates from crates.io" >> README.md
 echo "" >> README.md
 echo "----" >> README.md
+echo "" >> README.md
+echo "Audit output:" >> README.md
 echo "" >> README.md
 echo "\`\`\`" >> README.md
 cargo audit >> README.md
