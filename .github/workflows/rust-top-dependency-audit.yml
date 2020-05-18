@@ -26,6 +26,11 @@ jobs:
         run: cargo install cargo-edit --version 0.6.0
       - name: Add dependencies
         run: ./add_top_crates.sh
-      - uses: actions-rs/audit-check@v1.2.0
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+#      - name: Cargo audit - for GH-issues
+#        uses: actions-rs/audit-check@v1.2.0
+#        with:
+#          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Install cargo-audit
+        run: cargo install cargo-audit --version 0.12.0
+      - name: Cargo audit
+        run: cargo audit -D
