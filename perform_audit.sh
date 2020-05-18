@@ -23,10 +23,12 @@ echo "\`\`\`" >> README.md
 cargo audit >> README.md
 echo "\`\`\`" >> README.md
 
+git config --global user.email "jens.brimfors@gmail.com"
+git config --global user.name "GitHub Actions on behalf of Jens Brimfors"
 git remote add github "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git"
 git pull github ${GITHUB_REF} --ff-only
 
 git add README.md
 
-git commit -m "Update native model"
+git commit -m "Update README with audit info"
 git push github HEAD:${GITHUB_REF}
