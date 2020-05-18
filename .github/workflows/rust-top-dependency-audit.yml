@@ -9,7 +9,7 @@ on:
     branches: [ master ]
 
 jobs:
-  check-dependency-versions:
+  check-dependencies:
     runs-on: ubuntu-latest
     steps:
       - name: Cache cargo bin

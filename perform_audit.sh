@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/bin/sh
 
 cat README_TEMPLATE.md > README.md
 echo "" >> README.md
@@ -36,7 +36,7 @@ do
       echo "        Unable to fetch" >> README.md
     fi
     git checkout Cargo.toml > /dev/null 2>&1
-    rm Cargo.lock || echo "No lock file" > /dev/null
+    rm Cargo.lock > /dev/null 2>&1
   done
 done
 
