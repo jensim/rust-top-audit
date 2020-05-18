@@ -1,7 +1,7 @@
 #!/bin/sh -e
 
-cargo install cargo-edit --version 0.6.0 || echo "cargo-edit already installed"
-cargo install cargo-audit --version 0.12.0 || echo "cargo-audit already installed"
+cargo install -q cargo-edit --version 0.6.0 || echo "cargo-edit already installed"
+cargo install -q cargo-audit --version 0.12.0 || echo "cargo-audit already installed"
 
 for page in $(seq 1 5)
 do

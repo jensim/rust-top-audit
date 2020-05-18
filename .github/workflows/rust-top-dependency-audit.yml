@@ -22,5 +22,5 @@ jobs:
           key: ${{ runner.os }}-cargo-bin-${{ hashFiles('~/.cargo/bin/*') }}
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Install cargo-edit
+      - name: Perform audit
         run: ./perform_audit.sh
