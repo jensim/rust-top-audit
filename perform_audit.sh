@@ -10,7 +10,7 @@ echo "----" >> README.md
 
 cargo install -q cargo-edit --version 0.6.0 || echo "cargo-edit already installed"
 cargo install -q cargo-audit --version 0.12.0 || echo "cargo-audit already installed"
-pages=20
+pages=10
 page_size=50
 total_size=$(expr $pages \* $page_size)
 failed_fetch=()
@@ -42,6 +42,7 @@ echo "" >> README.md
 echo "## Audit" >> README.md
 echo "" >> README.md
 echo "\`\`\`" >> README.md
+rm Cargo.lock
 cargo audit >> README.md
 echo "\`\`\`" >> README.md
 
