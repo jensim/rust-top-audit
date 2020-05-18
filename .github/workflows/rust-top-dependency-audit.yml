@@ -23,7 +23,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Install cargo-edit
-        run: cargo install cargo-edit --version 0.6.0
+        run: cargo install cargo-edit --version 0.6.0 || echo "cargo-edit already installed"
       - name: Add dependencies
         run: ./add_top_crates.sh
 #      - name: Cargo audit - for GH-issues
@@ -31,6 +31,6 @@ jobs:
 #        with:
 #          token: ${{ secrets.GITHUB_TOKEN }}
       - name: Install cargo-audit
-        run: cargo install cargo-audit --version 0.12.0
+        run: cargo install cargo-audit --version 0.12.0 || echo "cargo-audit already installed"
       - name: Cargo audit
         run: cargo audit -D
