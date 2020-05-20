@@ -2,7 +2,7 @@ Top cargo dependency audits
 ----
 
 
-Last run:   Tue May 19 02:01:29 UTC 2020
+Last run:   Wed May 20 02:01:27 UTC 2020
 
 Audited the top 500 crates from crates.io
 
@@ -37,14 +37,8 @@ net2 0.2.34
 │   │   └── reqwest 0.10.4
 │   └── hyper-rustls 0.20.0
 │       └── rust-top-audit 0.1.0
-├── actix-web 2.0.0
-│   └── rust-top-audit 0.1.0
-├── actix-testing 1.0.0
-│   └── actix-web 2.0.0
-└── actix-server 1.0.2
-    ├── rust-top-audit 0.1.0
-    ├── actix-web 2.0.0
-    └── actix-testing 1.0.0
+└── actix-web 2.0.0
+    └── rust-top-audit 0.1.0
 
 Crate:  spin
 Title:  spin is no longer actively maintained
@@ -57,12 +51,12 @@ spin 0.5.2
     ├── webpki 0.21.2
     │   ├── webpki-roots 0.19.0
     │   │   └── rust-top-audit 0.1.0
-    │   ├── tokio-rustls 0.13.0
+    │   ├── tokio-rustls 0.13.1
     │   │   ├── rust-top-audit 0.1.0
     │   │   └── hyper-rustls 0.20.0
     │   │       └── rust-top-audit 0.1.0
     │   ├── rustls 0.17.0
-    │   │   ├── tokio-rustls 0.13.0
+    │   │   ├── tokio-rustls 0.13.1
     │   │   ├── rustls-native-certs 0.3.0
     │   │   │   ├── rust-top-audit 0.1.0
     │   │   │   └── hyper-rustls 0.20.0
