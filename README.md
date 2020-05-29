@@ -2,7 +2,7 @@ Top cargo dependency audits
 ----
 
 
-Last run:   Thu May 28 02:02:38 UTC 2020
+Last run:   Fri May 29 02:01:52 UTC 2020
 
 Audited the top 500 crates from crates.io
 
@@ -30,11 +30,11 @@ net2 0.2.34
 ├── mio 0.6.22
 ├── hyper 0.13.5
 │   ├── rust-top-audit 0.1.0
-│   ├── reqwest 0.10.4
+│   ├── reqwest 0.10.5
 │   │   └── rust-top-audit 0.1.0
 │   ├── hyper-tls 0.4.1
 │   │   ├── rust-top-audit 0.1.0
-│   │   └── reqwest 0.10.4
+│   │   └── reqwest 0.10.5
 │   └── hyper-rustls 0.20.0
 │       └── rust-top-audit 0.1.0
 └── actix-web 2.0.0
