@@ -2,7 +2,7 @@ Top cargo dependency audits
 ----
 
 
-Last run:   Sat May 30 02:01:46 UTC 2020
+Last run:   Sun May 31 02:01:49 UTC 2020
 
 Audited the top 500 crates from crates.io
 
@@ -14,7 +14,7 @@ Audited the top 500 crates from crates.io
     Fetching advisory database from `https://github.com/RustSec/advisory-db.git`
       Loaded 85 security advisories (from /home/runner/.cargo/advisory-db)
     Updating crates.io index
-    Scanning Cargo.lock for vulnerabilities (620 crate dependencies)
+    Scanning Cargo.lock for vulnerabilities (621 crate dependencies)
      Success No vulnerable packages found
 
 warning: 1 warning found
@@ -38,30 +38,32 @@ URL:    https://rustsec.org/advisories/RUSTSEC-2019-0031
 Dependency tree: 
 spin 0.5.2
 ├── rust-top-audit 0.1.0
-└── ring 0.16.13
-    ├── webpki 0.21.2
-    │   ├── webpki-roots 0.19.0
-    │   │   └── rust-top-audit 0.1.0
-    │   ├── tokio-rustls 0.13.1
-    │   │   ├── rust-top-audit 0.1.0
-    │   │   └── hyper-rustls 0.20.0
-    │   │       └── rust-top-audit 0.1.0
-    │   ├── rustls 0.17.0
-    │   │   ├── tokio-rustls 0.13.1
-    │   │   ├── rustls-native-certs 0.3.0
-    │   │   │   ├── rust-top-audit 0.1.0
-    │   │   │   └── hyper-rustls 0.20.0
-    │   │   ├── rust-top-audit 0.1.0
-    │   │   └── hyper-rustls 0.20.0
-    │   ├── rust-top-audit 0.1.0
-    │   └── hyper-rustls 0.20.0
-    ├── sct 0.6.0
-    │   ├── rustls 0.17.0
-    │   ├── rust-top-audit 0.1.0
-    │   └── ct-logs 0.6.0
-    │       ├── rust-top-audit 0.1.0
-    │       └── hyper-rustls 0.20.0
-    ├── rustls 0.17.0
+├── ring 0.16.14
+│   ├── webpki 0.21.3
+│   │   ├── webpki-roots 0.19.0
+│   │   │   └── rust-top-audit 0.1.0
+│   │   ├── tokio-rustls 0.13.1
+│   │   │   ├── rust-top-audit 0.1.0
+│   │   │   └── hyper-rustls 0.20.0
+│   │   │       └── rust-top-audit 0.1.0
+│   │   ├── rustls 0.17.0
+│   │   │   ├── tokio-rustls 0.13.1
+│   │   │   ├── rustls-native-certs 0.3.0
+│   │   │   │   ├── rust-top-audit 0.1.0
+│   │   │   │   └── hyper-rustls 0.20.0
+│   │   │   ├── rust-top-audit 0.1.0
+│   │   │   └── hyper-rustls 0.20.0
+│   │   ├── rust-top-audit 0.1.0
+│   │   └── hyper-rustls 0.20.0
+│   ├── sct 0.6.0
+│   │   ├── rustls 0.17.0
+│   │   ├── rust-top-audit 0.1.0
+│   │   └── ct-logs 0.6.0
+│   │       ├── rust-top-audit 0.1.0
+│   │       └── hyper-rustls 0.20.0
+│   ├── rustls 0.17.0
+│   └── rust-top-audit 0.1.0
+└── prometheus 0.9.0
     └── rust-top-audit 0.1.0
 
 Crate:  tempdir
