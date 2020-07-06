@@ -2,7 +2,7 @@ Top cargo dependency audits
 ----
 
 
-Last run:   Sun Jul  5 02:02:11 UTC 2020
+Last run:   Mon Jul  6 02:02:13 UTC 2020
 
 Audited the top 500 crates from crates.io
 
@@ -12,9 +12,9 @@ Audited the top 500 crates from crates.io
 
 ```
     Fetching advisory database from `https://github.com/RustSec/advisory-db.git`
-      Loaded 91 security advisories (from /home/runner/.cargo/advisory-db)
+      Loaded 92 security advisories (from /home/runner/.cargo/advisory-db)
     Updating crates.io index
-    Scanning Cargo.lock for vulnerabilities (645 crate dependencies)
+    Scanning Cargo.lock for vulnerabilities (644 crate dependencies)
      Success No vulnerable packages found
 
 warning: 1 warning found
@@ -50,22 +50,26 @@ spin 0.5.2
 │   ├── webpki 0.21.3
 │   │   ├── webpki-roots 0.20.0
 │   │   │   └── rust-top-audit 0.1.0
-│   │   ├── tokio-rustls 0.13.1
+│   │   ├── tokio-rustls 0.14.0
 │   │   │   ├── rust-top-audit 0.1.0
-│   │   │   └── hyper-rustls 0.20.0
+│   │   │   └── hyper-rustls 0.21.0
 │   │   │       └── rust-top-audit 0.1.0
 │   │   ├── rustls 0.18.0
-│   │   ├── rustls 0.17.0
+│   │   │   ├── tokio-rustls 0.14.0
+│   │   │   ├── rustls-native-certs 0.4.0
+│   │   │   │   ├── rust-top-audit 0.1.0
+│   │   │   │   └── hyper-rustls 0.21.0
+│   │   │   ├── rust-top-audit 0.1.0
+│   │   │   └── hyper-rustls 0.21.0
 │   │   ├── rust-top-audit 0.1.0
-│   │   └── hyper-rustls 0.20.0
+│   │   └── hyper-rustls 0.21.0
 │   ├── sct 0.6.0
 │   │   ├── rustls 0.18.0
-│   │   ├── rustls 0.17.0
 │   │   ├── rust-top-audit 0.1.0
-│   │   ├── ct-logs 0.7.0
-│   │   └── ct-logs 0.6.0
+│   │   └── ct-logs 0.7.0
+│   │       ├── rust-top-audit 0.1.0
+│   │       └── hyper-rustls 0.21.0
 │   ├── rustls 0.18.0
-│   ├── rustls 0.17.0
 │   └── rust-top-audit 0.1.0
 └── prometheus 0.9.0
     └── rust-top-audit 0.1.0
