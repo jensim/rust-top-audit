@@ -2,7 +2,7 @@ Top cargo dependency audits
 ----
 
 
-Last run:   Tue Jul  7 02:02:01 UTC 2020
+Last run:   Wed Jul  8 02:02:29 UTC 2020
 
 Audited the top 500 crates from crates.io
 
@@ -14,7 +14,7 @@ Audited the top 500 crates from crates.io
     Fetching advisory database from `https://github.com/RustSec/advisory-db.git`
       Loaded 92 security advisories (from /home/runner/.cargo/advisory-db)
     Updating crates.io index
-    Scanning Cargo.lock for vulnerabilities (644 crate dependencies)
+    Scanning Cargo.lock for vulnerabilities (641 crate dependencies)
      Success No vulnerable packages found
 
 warning: 1 warning found
