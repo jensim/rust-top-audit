@@ -2,7 +2,7 @@ Top cargo dependency audits
 ----
 
 
-Last run:   Sat Aug  1 02:02:36 UTC 2020
+Last run:   Sun Aug  2 02:02:49 UTC 2020
 
 Audited the top 500 crates from crates.io
 
