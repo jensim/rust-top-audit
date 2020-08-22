@@ -2,7 +2,7 @@ Top cargo dependency audits
 ----
 
 
-Last run:   Fri Aug 21 02:02:57 UTC 2020
+Last run:   Sat Aug 22 02:03:12 UTC 2020
 
 Audited the top 500 crates from crates.io
 
@@ -12,6 +12,6 @@ Audited the top 500 crates from crates.io
 
 ```
     Fetching advisory database from `https://github.com/RustSec/advisory-db.git`
-      Loaded 102 security advisories (from /home/runner/.cargo/advisory-db)
+      Loaded 103 security advisories (from /home/runner/.cargo/advisory-db)
     Updating crates.io index
 ```
