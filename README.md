@@ -2,7 +2,7 @@ Top cargo dependency audits
 ----
 
 
-Last run:   Thu Aug 27 02:03:32 UTC 2020
+Last run:   Fri Aug 28 02:03:13 UTC 2020
 
 Audited the top 500 crates from crates.io
 
@@ -12,7 +12,7 @@ Audited the top 500 crates from crates.io
 
 ```
     Fetching advisory database from `https://github.com/RustSec/advisory-db.git`
-      Loaded 107 security advisories (from /home/runner/.cargo/advisory-db)
+      Loaded 108 security advisories (from /home/runner/.cargo/advisory-db)
     Updating crates.io index
     Scanning Cargo.lock for vulnerabilities (665 crate dependencies)
      Success No vulnerable packages found
@@ -26,6 +26,22 @@ URL:    https://rustsec.org/advisories/RUSTSEC-2020-0018
 Dependency tree: 
 block-cipher-trait 0.7.0
 └── rust-top-audit 0.1.0
+
+Crate:  failure
+Title:  failure is officially deprecated/unmaintained
+Date:   2020-05-02
+URL:    https://rustsec.org/advisories/RUSTSEC-2020-0036
+Dependency tree: 
+failure 0.1.8
+├── trust-dns-resolver 0.18.0-alpha.2
+├── trust-dns-proto 0.18.0-alpha.2
+├── rust-top-audit 0.1.0
+└── actix-http 1.0.1
+    ├── rust-top-audit 0.1.0
+    ├── awc 1.0.1
+    │   └── actix-web 2.0.0
+    │       └── rust-top-audit 0.1.0
+    └── actix-web 2.0.0
 
 Crate:  net2
 Title:  `net2` crate has been deprecated; use `socket2` instead
