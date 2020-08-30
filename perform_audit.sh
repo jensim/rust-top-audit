@@ -5,7 +5,6 @@ page_size=50
 total_size=$(expr $pages \* $page_size)
 failed_fetch=()
 
-rm Cargo* || echo "" > /dev/null
 cat README_TEMPLATE.md > README.md
 {
   echo ""
@@ -16,8 +15,7 @@ cat README_TEMPLATE.md > README.md
   echo "----"
 } >> README.md
 
-git config --global user.email "jens.brimfors@gmail.com"
-git config --global user.name "GitHub Actions on behalf of Jens Brimfors"
+rm Cargo* || echo "" > /dev/null
 cargo init
 cargo install -q cargo-edit --version 0.6.0 > /dev/null 2>&1 || echo "cargo-edit already installed"
 cargo install -q cargo-audit --version 0.12.0 > /dev/null 2>&1 || echo "cargo-audit already installed"
@@ -47,18 +45,53 @@ if [[ "${#failed_fetch[@]}" != 0 ]] ; then
   } >> README.md
 fi
 
+rm Cargo.lock 2>/dev/null
+
+dropped_crates=()
+cargo_audit_output=$(cargo audit --color never 2>&1)
+while echo "$cargo_audit_output" | grep '... which is depended on by'
+do
+  echo "Will try removing conflicting crates.."
+  extra_crate="$(echo "$cargo_audit_output" 2>&1 |
+    # cargo audit --color never 2>&1 |
+    grep '... which is depended on by ' |
+    sed -n '/)/q;p' |
+    tail -1 |
+    sed 's/^.*which is depended on by `//g' |
+    sed 's/ .*$//g')"
+  dropped_crates+=("$extra_crate")
+  if ! cargo rm "$extra_crate" ; then
+    echo "Failed removing conflict crate that was preventing version resolve ($extra_crate)"
+    exit 1
+  fi
+  cargo_audit_output=$(cargo audit --color never 2>&1)
+done
+
+if [ "${#dropped_crates[@]}" -gt 0 ]; then
+  {
+    echo ""
+    echo "# Dropped crates due to version conflicts:"
+    echo ""
+    for crate in "${dropped_crates[@]}" ; do
+      echo "* $crate"
+    done
+  } >> README.md
+fi
+
 {
   echo ""
   echo "## Audit"
   echo ""
   echo "\`\`\`"
+  echo "$cargo_audit_output"
+  echo "\`\`\`"
+  echo ""
 } >> README.md
-rm Cargo.lock 2>/dev/null
-cargo audit --color never >> README.md
-echo "\`\`\`" >> README.md
 
 if [ "$#" -gt 0 ] ; then
   echo "Command was run with trailing garble, that means GO ahead for commit&push to github."
+  git config --global user.email "jens.brimfors@gmail.com"
+  git config --global user.name "GitHub Actions on behalf of Jens Brimfors"
   git remote add github "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git"
   git pull github "${GITHUB_REF}" --ff-only
 
