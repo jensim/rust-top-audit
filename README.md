@@ -4,7 +4,7 @@ Top cargo dependency audits
 To check out audited crates and versions, take a peek at [Cargo.toml](Cargo.toml).
 
 
-Last run:   Sun Aug 30 13:29:55 UTC 2020
+Last run:   Sun Aug 30 13:41:03 UTC 2020
 
 Audited the top 1000 crates from crates.io
 
@@ -12,14 +12,14 @@ Audited the top 1000 crates from crates.io
 
 ## Failed fetching crates:
 
- * Inflector
+ * [Inflector](https://crates.io/crates/Inflector)
 
 # Dropped crates due to version conflicts (These are probably lagging in dependency version):
 
-* rocksdb
-* librocksdb-sys
-* onig
-* onig_sys
+* [rocksdb](https://crates.io/crates/rocksdb)
+* [librocksdb-sys](https://crates.io/crates/librocksdb-sys)
+* [onig](https://crates.io/crates/onig)
+* [onig_sys](https://crates.io/crates/onig_sys)
 
 ## Audit
 
