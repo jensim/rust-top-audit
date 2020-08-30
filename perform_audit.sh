@@ -5,6 +5,7 @@ page_size=50
 total_size=$(expr $pages \* $page_size)
 failed_fetch=()
 
+rm Cargo.toml || echo "" > /dev/null
 cat README_TEMPLATE.md > README.md
 echo "" >> README.md
 echo "Last run:   $(date)" >> README.md
@@ -59,6 +60,7 @@ if [ "$#" -gt 0 ] ; then
   git pull github ${GITHUB_REF} --ff-only
 
   git add README.md
+  git add Cargo.toml
 
   git commit -m "Update README with audit info"
   git push github HEAD:${GITHUB_REF}
