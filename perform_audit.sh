@@ -28,33 +28,38 @@ do
     if cargo add "$crate" > /dev/null 2>&1 ; then
       echo "" > /dev/null
     else
-      failed_fetch+= "$crate"
+      failed_fetch+=("$crate")
     fi
   done
 done
 
-if [[ $failed_fetch != "" ]] ; then
-  echo "" >> README.md
-  echo "## Failed fetching crates:" >> README.md
-  echo "" >> README.md
-  for failed in $failed_fetch
-  do
-    echo " * $failed"
-  done
+if [[ "${#failed_fetch[@]}" != 0 ]] ; then
+  {
+    echo ""
+    echo "## Failed fetching crates:"
+    echo ""
+    for failed in "${failed_fetch[@]}" ; do
+      echo " * $failed"
+    done
+  } >> README.md
 fi
 
-echo "" >> README.md
-echo "## Audit" >> README.md
-echo "" >> README.md
+{
+  echo ""
+  echo "## Audit"
+  echo ""
+  echo "\`\`\`"
+} >> README.md
+rm Cargo.lock 2>/dev/null
+cargo audit --color never >> README.md
 echo "\`\`\`" >> README.md
-rm Cargo.lock
-cargo audit >> README.md
-echo "\`\`\`" >> README.md
 
-git remote add github "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git"
-git pull github ${GITHUB_REF} --ff-only
+if [ "$#" -gt 0 ] ; then
+  git remote add github "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git"
+  git pull github ${GITHUB_REF} --ff-only
 
-git add README.md
+  git add README.md
 
-git commit -m "Update README with audit info"
-git push github HEAD:${GITHUB_REF}
+  git commit -m "Update README with audit info"
+  git push github HEAD:${GITHUB_REF}
+fi
