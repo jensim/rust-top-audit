@@ -5,6 +5,7 @@ page_size=50
 total_size=$(expr $pages \* $page_size)
 failed_fetch=()
 
+git pull --rebase --ff-only
 cat README_TEMPLATE.md > README.md
 {
   echo ""
