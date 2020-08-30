@@ -1,8 +1,10 @@
 Top cargo dependency audits
 ----
 
+To check out audited crates and versions, take a peek at [Cargo.toml](Cargo.toml).
 
-Last run:   Sun Aug 30 06:20:27 UTC 2020
+
+Last run:   Sun Aug 30 06:57:00 UTC 2020
 
 Audited the top 500 crates from crates.io
 
