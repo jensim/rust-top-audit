@@ -41,7 +41,7 @@ if [[ "${#failed_fetch[@]}" != 0 ]] ; then
     echo "## Failed fetching crates:"
     echo ""
     for failed in "${failed_fetch[@]}" ; do
-      echo " * $failed"
+      echo " * [${failed}](https://crates.io/crates/${failed})"
     done
   } >> README.md
 fi
@@ -74,7 +74,7 @@ if [ "${#dropped_crates[@]}" -gt 0 ]; then
     echo "# Dropped crates due to version conflicts (These are probably lagging in dependency version):"
     echo ""
     for crate in "${dropped_crates[@]}" ; do
-      echo "* $crate"
+      echo "* [${crate}](https://crates.io/crates/${crate})"
     done
   } >> README.md
 fi
