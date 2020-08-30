@@ -70,7 +70,7 @@ done
 if [ "${#dropped_crates[@]}" -gt 0 ]; then
   {
     echo ""
-    echo "# Dropped crates due to version conflicts:"
+    echo "# Dropped crates due to version conflicts (These are probably lagging in dependency version):"
     echo ""
     for crate in "${dropped_crates[@]}" ; do
       echo "* $crate"
