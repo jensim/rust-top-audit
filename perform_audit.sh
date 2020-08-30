@@ -5,14 +5,16 @@ page_size=50
 total_size=$(expr $pages \* $page_size)
 failed_fetch=()
 
-rm Cargo.toml || echo "" > /dev/null
+rm Cargo* || echo "" > /dev/null
 cat README_TEMPLATE.md > README.md
-echo "" >> README.md
-echo "Last run:   $(date)" >> README.md
-echo "" >> README.md
-echo "Audited the top $total_size crates from crates.io" >> README.md
-echo "" >> README.md
-echo "----" >> README.md
+{
+  echo ""
+  echo "Last run:   $(date)"
+  echo ""
+  echo "Audited the top $total_size crates from crates.io"
+  echo ""
+  echo "----"
+} >> README.md
 
 git config --global user.email "jens.brimfors@gmail.com"
 git config --global user.name "GitHub Actions on behalf of Jens Brimfors"
@@ -56,12 +58,16 @@ cargo audit --color never >> README.md
 echo "\`\`\`" >> README.md
 
 if [ "$#" -gt 0 ] ; then
+  echo "Command was run with trailing garble, that means GO ahead for commit&push to github."
   git remote add github "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git"
-  git pull github ${GITHUB_REF} --ff-only
+  git pull github "${GITHUB_REF}" --ff-only
 
   git add README.md
   git add Cargo.toml
 
   git commit -m "Update README with audit info"
-  git push github HEAD:${GITHUB_REF}
+  git push github "HEAD:${GITHUB_REF}"
+else
+  echo "Wont do any of the git-stuff unless you add some garble args to the script"
+  exit 1
 fi
