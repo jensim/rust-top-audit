@@ -2,11 +2,15 @@ Top cargo dependency audits
 ----
 
 
-Last run:   Sun Aug 30 02:06:31 UTC 2020
+Last run:   Sun Aug 30 06:20:27 UTC 2020
 
 Audited the top 500 crates from crates.io
 
 ----
+
+## Failed fetching crates:
+
+ * Inflector
 
 ## Audit
 
