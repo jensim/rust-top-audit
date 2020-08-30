@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pages=10
+pages=20
 page_size=50
 total_size=$(expr $pages \* $page_size)
 failed_fetch=()
