@@ -60,7 +60,13 @@ do
     tail -1 |
     sed 's/^.*which is depended on by `//g' |
     sed 's/ .*$//g')"
-  dropped_crates+=("$extra_crate")
+  cause_crate="$(echo "$cargo_audit_output" 2>&1 |
+    # cargo audit --color never 2>&1 |
+    grep 'error: failed to select a version for' |
+    head -1 |
+    sed 's/error: failed to select a version for `//g' |
+    sed 's/`\.$//g')"
+  dropped_crates+=("[${extra_crate}](https://crates.io/crates/${extra_crate}) ([${cause_crate}](https://crates.io/crates/${cause_crate}))")
   if ! cargo rm "$extra_crate" ; then
     echo "Failed removing conflict crate that was preventing version resolve ($extra_crate)"
     exit 1
@@ -71,10 +77,11 @@ done
 if [ "${#dropped_crates[@]}" -gt 0 ]; then
   {
     echo ""
-    echo "# Dropped crates due to version conflicts (These are probably lagging in dependency version):"
+    echo "# Dropped crates due to version conflicts:"
+    echo "(These are probably lagging in dependency version, might be transitive)"
     echo ""
-    for crate in "${dropped_crates[@]}" ; do
-      echo "* [${crate}](https://crates.io/crates/${crate})"
+    for crate_link in "${dropped_crates[@]}" ; do
+      echo "* ${crate_link}"
     done
   } >> README.md
 fi
