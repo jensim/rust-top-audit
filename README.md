@@ -4,7 +4,7 @@ Top cargo dependency audits
 To check out audited crates and versions, take a peek at [Cargo.toml](Cargo.toml).
 
 
-Last run:   Tue Sep  1 02:03:25 UTC 2020
+Last run:   Wed Sep  2 02:03:00 UTC 2020
 
 Audited the top 1000 crates from crates.io
 
@@ -29,7 +29,7 @@ Audited the top 1000 crates from crates.io
       Loaded 109 security advisories (from /home/runner/.cargo/advisory-db)
     Updating crates.io index
     Updating crates.io index
-    Scanning Cargo.lock for vulnerabilities (1342 crate dependencies)
+    Scanning Cargo.lock for vulnerabilities (1347 crate dependencies)
 error: Vulnerable crates found!
 
 ID:       RUSTSEC-2020-0031
@@ -124,97 +124,95 @@ URL:    https://rustsec.org/advisories/RUSTSEC-2019-0031
 Dependency tree: 
 spin 0.5.2
 ├── rust-top-audit 0.1.0
-├── ring 0.16.15
-│   ├── webpki 0.21.3
-│   │   ├── webpki-roots 0.20.0
-│   │   ├── webpki-roots 0.19.0
-│   │   ├── webpki-roots 0.18.0
-│   │   ├── tokio-rustls 0.14.1
-│   │   │   ├── rust-top-audit 0.1.0
-│   │   │   └── hyper-rustls 0.21.0
-│   │   │       └── rust-top-audit 0.1.0
-│   │   ├── rustls 0.18.1
-│   │   │   ├── tokio-rustls 0.14.1
-│   │   │   ├── rustls-native-certs 0.4.0
-│   │   │   │   ├── rust-top-audit 0.1.0
-│   │   │   │   └── hyper-rustls 0.21.0
-│   │   │   ├── rust-top-audit 0.1.0
-│   │   │   ├── libp2p-websocket 0.22.0
-│   │   │   │   └── libp2p 0.24.0
-│   │   │   │       └── rust-top-audit 0.1.0
-│   │   │   ├── hyper-rustls 0.21.0
-│   │   │   ├── async-tls 0.9.0
-│   │   │   └── async-tls 0.8.0
-│   │   ├── rust-top-audit 0.1.0
-│   │   ├── libp2p-websocket 0.22.0
-│   │   ├── hyper-rustls 0.21.0
-│   │   ├── async-tls 0.9.0
-│   │   └── async-tls 0.8.0
-│   ├── snow 0.7.1
-│   │   ├── rust-top-audit 0.1.0
-│   │   └── libp2p-noise 0.23.0
-│   │       └── libp2p 0.24.0
-│   ├── sct 0.6.0
-│   │   ├── rustls 0.18.1
-│   │   ├── rust-top-audit 0.1.0
-│   │   └── ct-logs 0.7.0
-│   │       ├── rust-top-audit 0.1.0
-│   │       └── hyper-rustls 0.21.0
-│   ├── rustls 0.18.1
-│   ├── rust-top-audit 0.1.0
-│   ├── libp2p-secio 0.21.0
-│   │   └── libp2p 0.24.0
-│   ├── libp2p-core 0.21.0
-│   │   ├── rust-top-audit 0.1.0
-│   │   ├── libp2p-yamux 0.21.0
-│   │   │   └── libp2p 0.24.0
-│   │   ├── libp2p-websocket 0.22.0
-│   │   ├── libp2p-wasm-ext 0.21.0
-│   │   │   └── libp2p 0.24.0
-│   │   ├── libp2p-uds 0.21.0
-│   │   │   └── libp2p 0.24.0
-│   │   ├── libp2p-tcp 0.21.0
-│   │   │   ├── rust-top-audit 0.1.0
-│   │   │   └── libp2p 0.24.0
-│   │   ├── libp2p-swarm 0.21.0
-│   │   │   ├── rust-top-audit 0.1.0
-│   │   │   ├── libp2p-request-response 0.2.0
-│   │   │   │   └── libp2p 0.24.0
-│   │   │   ├── libp2p-ping 0.21.0
-│   │   │   │   └── libp2p 0.24.0
-│   │   │   ├── libp2p-mdns 0.21.0
-│   │   │   │   └── libp2p 0.24.0
-│   │   │   ├── libp2p-kad 0.22.1
-│   │   │   │   └── libp2p 0.24.0
-│   │   │   ├── libp2p-identify 0.21.0
-│   │   │   │   └── libp2p 0.24.0
-│   │   │   ├── libp2p-gossipsub 0.21.0
-│   │   │   │   └── libp2p 0.24.0
-│   │   │   ├── libp2p-floodsub 0.21.0
-│   │   │   │   └── libp2p 0.24.0
-│   │   │   └── libp2p 0.24.0
-│   │   ├── libp2p-secio 0.21.0
-│   │   ├── libp2p-request-response 0.2.0
-│   │   ├── libp2p-plaintext 0.21.0
-│   │   │   └── libp2p 0.24.0
-│   │   ├── libp2p-ping 0.21.0
-│   │   ├── libp2p-noise 0.23.0
-│   │   ├── libp2p-mplex 0.21.0
-│   │   │   └── libp2p 0.24.0
-│   │   ├── libp2p-mdns 0.21.0
-│   │   ├── libp2p-kad 0.22.1
-│   │   ├── libp2p-identify 0.21.0
-│   │   ├── libp2p-gossipsub 0.21.0
-│   │   ├── libp2p-floodsub 0.21.0
-│   │   ├── libp2p-dns 0.21.0
-│   │   │   └── libp2p 0.24.0
-│   │   ├── libp2p-deflate 0.21.0
-│   │   │   └── libp2p 0.24.0
-│   │   └── libp2p 0.24.0
-│   └── jsonwebtoken 7.2.0
-│       └── rust-top-audit 0.1.0
-└── prometheus 0.9.0
-    └── rust-top-audit 0.1.0
+└── ring 0.16.15
+    ├── webpki 0.21.3
+    │   ├── webpki-roots 0.20.0
+    │   ├── webpki-roots 0.19.0
+    │   ├── webpki-roots 0.18.0
+    │   ├── tokio-rustls 0.14.1
+    │   │   ├── rust-top-audit 0.1.0
+    │   │   └── hyper-rustls 0.21.0
+    │   │       └── rust-top-audit 0.1.0
+    │   ├── rustls 0.18.1
+    │   │   ├── tokio-rustls 0.14.1
+    │   │   ├── rustls-native-certs 0.4.0
+    │   │   │   ├── rust-top-audit 0.1.0
+    │   │   │   └── hyper-rustls 0.21.0
+    │   │   ├── rust-top-audit 0.1.0
+    │   │   ├── libp2p-websocket 0.22.0
+    │   │   │   └── libp2p 0.24.0
+    │   │   │       └── rust-top-audit 0.1.0
+    │   │   ├── hyper-rustls 0.21.0
+    │   │   ├── async-tls 0.9.0
+    │   │   └── async-tls 0.8.0
+    │   ├── rust-top-audit 0.1.0
+    │   ├── libp2p-websocket 0.22.0
+    │   ├── hyper-rustls 0.21.0
+    │   ├── async-tls 0.9.0
+    │   └── async-tls 0.8.0
+    ├── snow 0.7.1
+    │   ├── rust-top-audit 0.1.0
+    │   └── libp2p-noise 0.23.0
+    │       └── libp2p 0.24.0
+    ├── sct 0.6.0
+    │   ├── rustls 0.18.1
+    │   ├── rust-top-audit 0.1.0
+    │   └── ct-logs 0.7.0
+    │       ├── rust-top-audit 0.1.0
+    │       └── hyper-rustls 0.21.0
+    ├── rustls 0.18.1
+    ├── rust-top-audit 0.1.0
+    ├── libp2p-secio 0.21.0
+    │   └── libp2p 0.24.0
+    ├── libp2p-core 0.21.0
+    │   ├── rust-top-audit 0.1.0
+    │   ├── libp2p-yamux 0.21.0
+    │   │   └── libp2p 0.24.0
+    │   ├── libp2p-websocket 0.22.0
+    │   ├── libp2p-wasm-ext 0.21.0
+    │   │   └── libp2p 0.24.0
+    │   ├── libp2p-uds 0.21.0
+    │   │   └── libp2p 0.24.0
+    │   ├── libp2p-tcp 0.21.0
+    │   │   ├── rust-top-audit 0.1.0
+    │   │   └── libp2p 0.24.0
+    │   ├── libp2p-swarm 0.21.0
+    │   │   ├── rust-top-audit 0.1.0
+    │   │   ├── libp2p-request-response 0.2.0
+    │   │   │   └── libp2p 0.24.0
+    │   │   ├── libp2p-ping 0.21.0
+    │   │   │   └── libp2p 0.24.0
+    │   │   ├── libp2p-mdns 0.21.0
+    │   │   │   └── libp2p 0.24.0
+    │   │   ├── libp2p-kad 0.22.1
+    │   │   │   └── libp2p 0.24.0
+    │   │   ├── libp2p-identify 0.21.0
+    │   │   │   └── libp2p 0.24.0
+    │   │   ├── libp2p-gossipsub 0.21.0
+    │   │   │   └── libp2p 0.24.0
+    │   │   ├── libp2p-floodsub 0.21.0
+    │   │   │   └── libp2p 0.24.0
+    │   │   └── libp2p 0.24.0
+    │   ├── libp2p-secio 0.21.0
+    │   ├── libp2p-request-response 0.2.0
+    │   ├── libp2p-plaintext 0.21.0
+    │   │   └── libp2p 0.24.0
+    │   ├── libp2p-ping 0.21.0
+    │   ├── libp2p-noise 0.23.0
+    │   ├── libp2p-mplex 0.21.0
+    │   │   └── libp2p 0.24.0
+    │   ├── libp2p-mdns 0.21.0
+    │   ├── libp2p-kad 0.22.1
+    │   ├── libp2p-identify 0.21.0
+    │   ├── libp2p-gossipsub 0.21.0
+    │   ├── libp2p-floodsub 0.21.0
+    │   ├── libp2p-dns 0.21.0
+    │   │   └── libp2p 0.24.0
+    │   ├── libp2p-deflate 0.21.0
+    │   │   └── libp2p 0.24.0
+    │   └── libp2p 0.24.0
+    └── jsonwebtoken 7.2.0
+        └── rust-top-audit 0.1.0
 
 Crate:  stb_truetype
 Title:  `stb_truetype` crate has been deprecated; use `ttf-parser` instead
