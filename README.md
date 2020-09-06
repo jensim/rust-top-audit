@@ -4,7 +4,7 @@ Top cargo dependency audits
 To check out audited crates and versions, take a peek at [Cargo.toml](Cargo.toml).
 
 
-Last run:   Sat Sep  5 02:31:48 UTC 2020
+Last run:   Sun Sep  6 02:04:10 UTC 2020
 
 Audited the top 1000 crates from crates.io
 
@@ -29,7 +29,7 @@ Audited the top 1000 crates from crates.io
       Loaded 112 security advisories (from /home/runner/.cargo/advisory-db)
     Updating crates.io index
     Updating crates.io index
-    Scanning Cargo.lock for vulnerabilities (1328 crate dependencies)
+    Scanning Cargo.lock for vulnerabilities (1340 crate dependencies)
 error: Vulnerable crates found!
 
 ID:       RUSTSEC-2020-0031
