@@ -4,7 +4,7 @@ Top cargo dependency audits
 To check out audited crates and versions, take a peek at [Cargo.toml](Cargo.toml).
 
 
-Last run:   Sun Sep  6 02:04:10 UTC 2020
+Last run:   Mon Sep  7 02:03:27 UTC 2020
 
 Audited the top 1000 crates from crates.io
 
@@ -26,11 +26,26 @@ Audited the top 1000 crates from crates.io
 
 ```
     Fetching advisory database from `https://github.com/RustSec/advisory-db.git`
-      Loaded 112 security advisories (from /home/runner/.cargo/advisory-db)
+      Loaded 113 security advisories (from /home/runner/.cargo/advisory-db)
     Updating crates.io index
     Updating crates.io index
     Scanning Cargo.lock for vulnerabilities (1340 crate dependencies)
 error: Vulnerable crates found!
+
+ID:       RUSTSEC-2020-0041
+Crate:    sized-chunks
+Version:  0.6.2
+Date:     2020-09-06
+URL:      https://rustsec.org/advisories/RUSTSEC-2020-0041
+Title:    Multiple soundness issues in Chunk and InlineArray
+Solution:  No safe upgrade is available!
+Dependency tree: 
+sized-chunks 0.6.2
+├── rust-top-audit 0.1.0
+├── im-rc 15.0.0
+│   └── rust-top-audit 0.1.0
+└── im 15.0.0
+    └── rust-top-audit 0.1.0
 
 ID:       RUSTSEC-2020-0031
 Crate:    tiny_http
@@ -245,7 +260,7 @@ URL:    https://rustsec.org/advisories/RUSTSEC-2018-0015
 Dependency tree: 
 term 0.6.1
 
-error: 2 vulnerabilities found!
+error: 3 vulnerabilities found!
 warning: 1 warning found!
 ```
 
